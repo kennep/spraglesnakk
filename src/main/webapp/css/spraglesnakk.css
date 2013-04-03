@@ -10,13 +10,20 @@
 	left: 0px;
 	right: 0px;
 	top: 41px;
-	bottom: 5em;
+	bottom: 7em;
 	overflow: none;
 }
 
 form {
 	margin: 0px;
-	padding: 0px;
+	padding: 0.5em;
+	padding-left: 1.0em;
+	padding-right: 6.5em;
+	position: absolute;
+	bottom: 0px;
+	right: 0em;
+	left: 0em;
+	height: 3em;
 }
 
 #chatHistory {
@@ -27,24 +34,21 @@ form {
 
 #type button {
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	width: 5em;
+	right: 1em;
 }
 
 #type input {
-	position: absolute;
-	bottom: 0px;
-	right: 0em;
-	left: 0em;
-	height: 2em;
-	width: auto;
+	float: left;
 	margin: 0px;
 	padding: 0.5em;
-	padding-right: 5em;
+	margin: -0.5em;
+	margin-top: -1em;
+	width: 100%;
+	height: 100%;
 }
 
 #wicketDebugLink {
 	top: 0px;
 	height: 1em;
+	display: none;
 }
