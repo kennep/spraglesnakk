@@ -52,3 +52,31 @@ form {
 	height: 1em;
 	display: none;
 }
+
+.l1 {
+	color: white;
+}
+
+.l2 {
+	color: pink;
+}
+
+.l3 {
+	color: yellow;
+}
+
+.l4 {
+	color: lightgreen;
+}
+
+.l5 {
+	color: orange;
+}
+
+.l6  {
+	color: lightblue;
+}
+
+.l7 {
+	color: yellow;	
+}

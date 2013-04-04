@@ -10,9 +10,16 @@ $(document).ready(function() {
 			$('#showhide i').removeClass('icon-chevron-down');
 		}
 	});
-	
-	if(!$('#username').val()) {
-		$('#username').val(window.prompt('Kva er namet ditt?', 'Anynom feiging'));
+
+	var username = $('#username').val();
+	if(!username) {
+		var defaultUsername = 'Anonym feiging';
+		username = window.prompt('Kva er namet ditt?', defaultUsername);
+		if(!username) {
+			username = defaultUsername;
+		}
+		$('#username').val(defaultUsername);
 	}
+	$('#chatHistory').append('<p>Du er no logga inn som <b>' + username + '</b>.</p>');
 });
 
