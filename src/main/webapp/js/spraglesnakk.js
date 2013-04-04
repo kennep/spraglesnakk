@@ -18,7 +18,7 @@ $(document).ready(function() {
 		if(!username) {
 			username = defaultUsername;
 		}
-		$('#username').val(defaultUsername);
+		$('#username').val(username);
 	}
 	$('#chatHistory').append('<p>Du er no logga inn som <b>' + username + '</b>.</p>');
 });
