@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html
-	xmlns:wicket="https://git-wip-us.apache.org/repos/asf/wicket/repo?p=wicket.git;a=blob_plain;f=wicket-core/src/main/resources/META-INF/wicket-1.5.xsd;hb=master">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +10,10 @@
 <link href="css/spraglesnakk.css" rel="stylesheet" media="screen">
 
 <!-- JAVASCRIPT -->
+<script src="jquery/jquery-1.7.2.js"></script>
+<script src="jquery/jquery.atmosphere.js"></script>
 <script src="include/js/bootstrap.js"></script>
 <script src="js/spraglesnakk.js"></script>
-
 </head>
 <body>
 	<div id="container">
@@ -35,10 +35,10 @@
 			</div>
 		</div>
 		<div id="type">
-			<form wicket:id="form">
-				<input id="username" type="hidden" wicket:id="username"></input>
-				<button class="btn btn-primary" wicket:id="send">Send</button>
-				<input type=text wicket:id="typearea"></input>
+			<form>
+				<input id="username" type="hidden" name="username" />
+				<button class="btn btn-primary" name="send" id="send">Send</button>
+				<input type="text" name="message" id="message"/>
 			</form>
 		</div>
 	</div>

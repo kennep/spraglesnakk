@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.dhs.pedersen</groupId>
+	<groupId>com.wangpedersen</groupId>
 	<artifactId>spraglesnakk</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
@@ -10,29 +10,46 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <atmosphere.version>2.0.0.RC3</atmosphere.version>
+        <jetty.version>9.0.0.v20130308</jetty.version>
 	</properties>
 
 	<dependencies>
 		<!-- Compile/runtime dependencies -->
 
-		<!-- Wicket / Atmoshphere -->
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-core</artifactId>
-			<version>6.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-atmosphere</artifactId>
-			<version>0.8</version>
-		</dependency>
+        <!-- Servlet specification -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<!-- Apache commons lang -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
-		</dependency>
+        <!-- Atmosphere -->
+        <dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-runtime</artifactId>
+            <version>${atmosphere.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-annotations</artifactId>
+            <version>${atmosphere.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-jquery</artifactId>
+            <version>1.0.16</version>
+            <type>war</type>
+        </dependency>
+
+
+        <!-- Jackson (for JSON encoding) -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -62,12 +79,14 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
-			<version>9.0.0.v20130308</version>
+			<version>${jetty.version}</version>
+            <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>9.0.0.v20130308</version>
+			<version>${jetty.version}</version>
+            <scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -85,7 +104,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.0.0.v20130308</version>
+				<version>${jetty.version}</version>
 				<configuration>
 					<connector>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">

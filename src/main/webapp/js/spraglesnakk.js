@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    "use strict";
+
 	$('#showhide').click(function() {
 		if(!$('#presentation').hasClass('full')) {
 			$('#presentation,#history').addClass('full');
@@ -21,5 +23,46 @@ $(document).ready(function() {
 		$('#username').val(username);
 	}
 	$('#chatHistory').append('<p>Du er no logga inn som <b>' + username + '</b>.</p>');
+
+    // Atmosphere initialization
+    var request = { url: 'chat',
+        contentType: 'application/json',
+        trackMessageLength: true,
+        shared: true,
+        transport: 'websocket',
+        fallbackTransport: 'long-polling'};
+
+    request.onOpen = function(response) {
+    	$('#chatHistory').append('<p>Kopla til med <b>' + response.transport + '</b>.</p>');
+    };
+
+    request.onTransportFailure = function(errorMsg, request) {
+    	$('#chatHistory').append('<p>Feil: <b>' + errorMsg + '</b>.</p>');
+        if (window.EventSource) {
+           request.fallbackTransport = "sse";
+           transport = "see";
+        }
+    };
+
+    request.onMessage = function (response) {
+        var message = response.responseBody;
+        var json;
+        try {
+            json = jQuery.parseJSON(message);
+        } catch(e) {
+            $('#chatHistory').append('<p>Fikk noko som ikke såg ut som JSON: ' + message + '</p>');
+            return;
+        }
+        $('#chatHistory').append('<p><b>' + json.username + ' sa:</b> ' + json.message + '</p>');
+    };
+
+    var subscription = $.atmosphere.subscribe(request);
+
+    $('#send').click(function(e) {
+        subscription.push(jQuery.stringifyJSON({'username': username, 'message': $('#message').val()}));
+        $('#message').val('');
+        return false;
+    });
+
 });
 

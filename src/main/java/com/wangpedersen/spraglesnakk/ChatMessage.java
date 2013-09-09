@@ -1,4 +1,4 @@
-package org.dhs.pedersen.spraglesnakk;
+package com.wangpedersen.spraglesnakk;
 
 import java.io.Serializable;
 

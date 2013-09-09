@@ -1,4 +1,4 @@
-package org.dhs.pedersen.spraglesnakk.testserver;
+package com.wangpedersen.spraglesnakk.testserver;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
