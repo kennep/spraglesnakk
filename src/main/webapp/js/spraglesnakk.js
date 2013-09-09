@@ -50,7 +50,7 @@ $(document).ready(function() {
         try {
             json = jQuery.parseJSON(message);
         } catch(e) {
-            $('#chatHistory').append('<p>Fikk noko som ikke såg ut som JSON: ' + message + '</p>');
+            $('#chatHistory').append('<p>Fikk noko som ikkje såg ut som JSON: ' + message + '</p>');
             return;
         }
         $('#chatHistory').append('<p><b>' + json.username + ' sa:</b> ' + json.message + '</p>');
