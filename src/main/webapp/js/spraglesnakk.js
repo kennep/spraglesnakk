@@ -40,7 +40,6 @@ $(document).ready(function() {
     	$('#chatHistory').append('<p>Feil: <b>' + errorMsg + '</b>.</p>');
         if (window.EventSource) {
            request.fallbackTransport = "sse";
-           transport = "see";
         }
     };
 
