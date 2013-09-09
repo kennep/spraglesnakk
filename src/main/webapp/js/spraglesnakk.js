@@ -38,9 +38,6 @@ $(document).ready(function() {
 
     request.onTransportFailure = function(errorMsg, request) {
     	$('#chatHistory').append('<p>Feil: <b>' + errorMsg + '</b>.</p>');
-        if (window.EventSource) {
-           request.fallbackTransport = "sse";
-        }
     };
 
     request.onMessage = function (response) {
