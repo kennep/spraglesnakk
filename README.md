@@ -2,3 +2,4 @@ spraglesnakk
 ============
 
 Demoapplikasjon for Atmosphere
+
