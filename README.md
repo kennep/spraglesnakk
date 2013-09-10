@@ -1,4 +1,4 @@
 spraglesnakk
 ============
 
-Demoapplikasjon for Wicket-Atmosphere
+Demoapplikasjon for Atmosphere
